@@ -1,5 +1,5 @@
 terraform {
-  required_version = "1.7.0"
+  required_version = "~> 1.7.0"
 
   required_providers {
     helm = {
@@ -11,9 +11,9 @@ terraform {
 
 provider "helm" {
   kubernetes {
-    host                   = var.host
-    client_certificate     = var.client_certificate
-    client_key             = var.client_key
-    cluster_ca_certificate = var.cluster_ca_certificate
+    host                   = var.kube_config.host
+    client_certificate     = base64decode(var.kube_config.client_certificate)
+    client_key             = base64decode(var.kube_config.client_key)
+    cluster_ca_certificate = base64decode(var.kube_config.cluster_ca_certificate)
   }
 }
