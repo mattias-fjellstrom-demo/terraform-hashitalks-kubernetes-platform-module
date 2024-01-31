@@ -1,3 +1,5 @@
 # Kubernetes platform module
 
-Bootstraps a new Kubernetes cluster with cluster-apps.
+Bootstraps a Kubernetes cluster with cluster-apps.
+
+Currently only includes Argo CD.
